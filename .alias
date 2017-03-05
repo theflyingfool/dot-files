@@ -1,0 +1,115 @@
+###############################################################################
+#
+# ~/.alias
+#
+# Maintainer:
+#	TheFlyingFool - tff@theflyingfool.com
+#	http://theflyingfool.com
+#
+#
+# Credits:
+#	Package Management Section
+#		https://gist.github.com/rroblak/8137276
+###############################################################################
+
+
+
+alias vi="vim"                                              #Insure vim
+alias tmux='tmux attach || tmux'				    
+#Coloration of core utils
+alias grep="grep -n --color=auto"                           #grep
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias ls="ls --color=auto"                                  #ls
+#ZFS Related						    #zfs, and zpool both set to NOPASSWD via sudoers file
+alias zfs="sudo zfs"					    
+alias zpool="sudo zpool"
+alias scrub="sudo zpool scrub"			            #preforms scrub
+#Mingw
+alias winmake="/usr/bin/i686-w64-mingw32-gcc"
+alias winmake64="/usr/bin/x86_64-w64-mingw32-gcc"
+
+#VimLess
+alias less="/usr/share/vim/vim80/macros/less.sh"
+
+if [ -e "/usr/bin/apt-get" ] ; then # Apt-based distros (Debian, Ubuntu, etc.)
+  aptget="/usr/bin/apt-get"         # I currently do not use any apt-based distros
+  sudoaptget="sudo $aptget"         
+  aptcache="/usr/bin/apt-cache"
+  dpkg="/usr/bin/dpkg"
+  alias S="$sudoaptget install"
+  alias Syu="$sudoaptget update"
+  alias Ss="$aptcache search"
+  alias Si="$aptcache show"
+#  alias pacinstalled="$aptcache policy"
+#  alias paca="$dpkg --get-selections"
+#  alias pacfiles="$dpkg -L"
+#elif [ -e "/usr/bin/pacman" -a "/usr/bin/cower" ] ; then
+#  alias XxX="echo 'pacman + cower'"
+elif [ -e "/usr/bin/pacman" ] ; then # Arch Linux
+  pacman="/usr/bin/pacman --color=auto"
+  sudopacman="sudo $pacman --color=auto"
+  alias S="$sudopacman -S"
+  alias Syy="$sudopacman -Syy"
+  alias Syu="$sudopacman -Syu"
+  alias Rns="$sudopacman -Rns"
+  alias Ss="$pacman -Ss"
+  alias Si="$pacman -Si"
+  alias Q="$pacman -Q"
+#  alias paclo="$pacman -Qdt"
+#  alias pacdnc="$sudopacman -Scc"
+#  alias pacfiles="$pacman -Ql"
+#  alias pacexpl="$pacman -D --asexp"
+#  alias pacimpl="$pacman -D --asdep"
+elif [ -e "/usr/bin/yum" ] ; then # RPM-based distros
+  yum="/usr/bin/yum"
+  sudoyum="sudo $yum"
+  repoquery="/usr/bin/repoquery"
+  alias paci="$sudoyum install"
+  alias pacu="$sudoyum update"
+  alias pacr="$sudoyum remove"
+  alias pacs="$yum search"
+  alias pacfiles="$repoquery -lq --installed"
+  alias pacwhoownsit="$yum whatprovides"
+  alias pacinfo="$yum info"
+  alias paclfc="$yum -qc"
+  alias paccheckforupdates="$sudoyum list updates"
+#elif [ -e "/usr/local/bin/brew" ] ; then # homebrew
+#  brew="/usr/local/bin/brew"
+#  alias paci="$brew install"
+#  alias pacu="$brew update"
+#  alias pacup="$brew upgrade"
+#  alias pacs="$brew search"
+#  alias pacr="$brew uninstall"
+elif [ -e "/usr/bin/zypper" ] ; then
+  zypper="/usr/bin/zypper" 
+  suzyp="sudo $zypper"
+  alias Syu="$suzyp refresh && $suzyp update"
+  alias Ss="$zypper se"
+  alias S="$suzyp in"
+fi
+
+
+
+
+## Cygwin
+# quickly get to my owncloud dir
+alias cdoc="cd /cygdrive/c/Users/Nicholas/ownCloud"
+
+
+
+#AUR Related 
+## Looking at incorperating this into above P-man section
+##Needs to be moved to arch specific zsh / only sourced if cower is installed
+alias aSyu="cd ~/aur && echo $PWD && cower -uvddf --color" #AUR Update
+alias aSs="cd ~/aur && cower -s --color"                  #Search AUR
+alias aS="cd ~/aur && cower -dd --color"                  #Download PKGBUILD and depends
+
+
+alias dot="git --git-dir=$HOME/.dot/ --work-tree=$HOME"
+
+##Convenience
+alias 'mkdir=mkdir -p'
+
+#list empty dirs
+alias le="find . -type d -empty"
