@@ -15,3 +15,7 @@ Follows is a list of the programs with a configuation and any notes about them.
   * Activaly used
 2. bashrc
   * Not used, not really maintained.
+1. tmux
+  * Activaly used
+1. vim
+  * Activaly used
