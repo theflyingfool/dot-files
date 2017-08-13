@@ -1,5 +1,5 @@
-#My Dot Files#
-##Usage##
+# My Dot Files #
+## Usage ##
 This is a set of dot files which means usage is generally as simple as put them in the default locations and your good.
 However, the way I am using this repo comes from :https://news.ycombinator.com/item?id=11070797
 
