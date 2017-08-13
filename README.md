@@ -16,14 +16,14 @@ If your just using git:
     git config --local status.showUntrackedFiles no
 
 
-##Programs##
+## Programs ##
 Follows is a list of the programs with a configuation and any notes about them.
 
 1. zshrc
   * Activaly used
 2. bashrc
   * Not used, not really maintained.
-1. tmux
+3. tmux
   * Activaly used
-1. vim
+4. vim
   * Activaly used
